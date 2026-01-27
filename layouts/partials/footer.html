@@ -1,9 +1,7 @@
 {{- $footer      := .Site.Params.footer }}
 {{- $logo        := index $footer "logo" }}
 {{- $quickLinks  := index $footer "quicklinks" }}
-{{- $socialMedia := index $footer "socialmedia" }}
-{{- $bulmaLogo   := index $footer "bulmalogo" }}
-{{- $socialMediaTitle    := index $footer "socialmediatitle" }}
+{{- $legal_mentions := index $footer "legal" }}
 <footer class="footer footer-dark">
   <div class="container">
     <div class="columns">
@@ -33,22 +31,12 @@
       <div class="column">
         <div class="footer-column">
           <div class="footer-header">
-            <h3>{{ $socialMediaTitle }}</h3>
+            <h3>Legal mentions</h3>
             <nav class="level is-mobile">
               <div class="level-left">
-                {{- range $socialMedia }}
-                <a class="level-item" href="{{ .link }}">
-                  <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
-                </a>
-                {{- end }}
+                <span class="icon-box-text">{{ $legal_mentions | markdownify }}</span>
               </div>
             </nav>
-
-            {{- if $bulmaLogo }}
-            <a href="https://bulma.io" target="_blank">
-              <img src="{{ "images/logos/made-with-bulma.png" | relURL }}" alt="Made with Bulma" width="128" height="24">
-            </a>
-            {{- end }}
           </div>
         </div>
       </div>

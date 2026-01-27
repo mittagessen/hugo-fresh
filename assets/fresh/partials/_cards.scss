@@ -20,7 +20,10 @@ Cards and Card content styles
     }
     .card-icon img {
         height: 120px;
+        width: 120px;
         margin-top: 20px;
+        padding-left: 0 !important;
+        border-radius: 50%;
     }
     .card-text {
         padding: 0 40px;
