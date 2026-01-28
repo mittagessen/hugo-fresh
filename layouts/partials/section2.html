@@ -4,30 +4,29 @@
 {{- $features := index $section2 "features" }}
 <section class="section is-medium" id="section2">
   <div class="container">
-    <div class="columns">
+    <div class="columns is-vcentered is-centered">
       <div class="column is-centered-tablet-portrait">
         <h1 class="title section-title">{{ $title }}</h1>
         <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
         <div class="divider"></div>
       </div>
       <div class="column is-7 mt-60">
-        {{- range $features }}
-        <article class="media icon-box">
-          <figure class="media-left">
-            <p class="image">
-              <img src="{{ printf "images/illustrations/icons/%s.svg" .icon | relURL }}">
-            </p>
-          </figure>
-          <div class="media-content mt-50">
-            <div class="content">
-              <p>
-                <span class="icon-box-title">{{ .title }}</span>
-
-                <span class="icon-box-text">{{ .text | markdownify }}</span>
-              </p>
+        {{- range $i, $feature := $features }}
+        <a href="{{ .url }}">
+          <article class="media icon-box">
+            <div class="media-content mt-50">
+              <div class="content">
+                <p>
+                  <span class="icon-box-title">{{ .title }}</span>
+                  <span class="icon-box-text">{{ .text | markdownify }}</span>
+                </p>
+              </div>
             </div>
-          </div>
-        </article>
+            <figure class="media-right">
+              <img class="section2-image" src="{{ printf "images/illustrations/icons/%s" .icon | relURL }}">
+            </figure>
+          </article>
+        </a>
         {{- end }}
       </div>
     </div>
